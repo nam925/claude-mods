@@ -22,6 +22,16 @@ const resetIn = (iso: string | undefined, now: number) => {
 export const register: Register = on => {
   const warned = new Map<string, number>()
 
+  on('session.start', async ($, e, next) => {
+    try {
+      const u = await $.session.usage()
+      await update($, limits, () => u.rateLimits.map(l => ({ kind: l.kind, percentUsed: l.percentUsed, resetsAt: l.resetsAt })))
+    } catch {
+      // no reading yet; session.measure fills it after the first turn
+    }
+    return next(e)
+  })
+
   on('session.measure', async ($, e, next) => {
     const rows = e.rateLimits.map(l => ({ kind: l.kind, percentUsed: l.percentUsed, resetsAt: l.resetsAt }))
     await update($, limits, () => rows)
