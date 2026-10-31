@@ -1,0 +1,1 @@
+{ "name": "usage-bar", "version": "0.1.0", "description": "Thin bar above the prompt showing 5-hour session and weekly usage, with limit warnings.", "types": "./types/index.d.ts" }

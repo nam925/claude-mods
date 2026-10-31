@@ -1,0 +1,5 @@
+{
+  "name": "caveman-toggle",
+  "version": "0.1.0",
+  "description": "Shows whether caveman mode is on above the prompt and toggles it with a button or /cavetoggle"
+}

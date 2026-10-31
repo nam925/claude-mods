@@ -1,0 +1,8 @@
+{
+  "name": "claude-mods",
+  "owner": { "name": "nam925" },
+  "plugins": [
+    { "name": "usage-bar", "source": "./usage-bar" },
+    { "name": "caveman-toggle", "source": "./caveman-toggle" }
+  ]
+}
